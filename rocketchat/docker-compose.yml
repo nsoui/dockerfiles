@@ -1,0 +1,17 @@
+rocketchat:
+  image: rocket.chat
+  ports:
+    - "3000:3000"
+  links:
+    - mongo:db
+  environment:
+    - ROOT_URL=http://chat.easypi.pro
+  restart: always
+
+mongo:
+  image: mongo
+  ports:
+    - "27017:27017"
+  volumes:
+    - ./data:/data/db
+  restart: always
